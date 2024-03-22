@@ -14,7 +14,7 @@ class LoginController extends Controller
     }
     public function loginproses(request $request){
         if(Auth::attempt($request->only('email', 'password'))){
-            return redirect('/foto');
+            return redirect('foto');
         }
 
         return redirect('login');
@@ -23,13 +23,13 @@ class LoginController extends Controller
     public function register(){
         return view('register');
     }
-    public function registeruser(request $request){
-        User::create([
-            'name' => $request->name,
-            'email' =>$request->email,
-            'password' => bcrypt($request->password),
-            'remember_token' => Str::random(60)
-        ]);
+    public function store(Request $request)
+    {
+    $user = new User();
+    $user->name = $request->input('name');
+    $user->email = $request->input('email');
+    $user->password = bcrypt($request->input('password'));
+    $user->save();
 
         return redirect('/login');
     }

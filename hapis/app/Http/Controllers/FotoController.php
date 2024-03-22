@@ -9,7 +9,7 @@ class FotoController extends Controller
 {
     public function index(){
         $data = Foto::all();
-        return view('fotogalery', compact('data'));
+        return view('fotogaleri', compact('data'));
     }
 
     public function tambahfoto(){

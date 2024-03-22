@@ -26,7 +26,7 @@ Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/loginproses', [LoginController::class, 'loginproses'])->name('loginproses');
 
 Route::get('/register', [LoginController::class, 'register'])->name('register');
-Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('registeruser');
+Route::post('/store', [LoginController::class, 'store'])->name('store');
 
 
 Route::get('/foto', [FotoController::class, 'index'])->name('foto');
